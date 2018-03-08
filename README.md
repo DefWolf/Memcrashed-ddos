@@ -1,7 +1,7 @@
 # Memecrashed
 Version 0.1
-
-Soon the script will multi-thread and automatically search for vulnerable servers
+Memecashed ddos
+Soon the script will multi-thread and automatically search for vulnerable servers.
 
 Exploit 1 - https://github.com/649/Memcrashed-DDoS-Exploit
 
