@@ -1,7 +1,7 @@
 # Memecrashed
 Version 0.1
 
-Meemcached ddos
+Memcached ddos
 
 Soon the script will multi-thread and automatically search for vulnerable servers.
 
