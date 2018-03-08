@@ -28,6 +28,7 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 ?MXT@Wx.~    :     ~"##*$$$$M~
 
 	""")
+print(datetime.datetime.now())
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-T", help="Target")
