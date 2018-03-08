@@ -2,7 +2,7 @@ import pip
 #pip.main(['install', 'scapy'])
 #pip.main(['install', 'datetime'])
 from scapy.all import *
-import random, threading, sys, datetime, argparse,urllib2
+import threading, sys, datetime, argparse, urllib2
 
 print("""
 
