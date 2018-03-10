@@ -1,5 +1,5 @@
 import pip
-#pip.main(['install', 'scapy'])
+#pip.main(['install', 'scapy.all'])
 #pip.main(['install', 'datetime'])
 from scapy.all import *
 import threading, sys, datetime, argparse, urllib2
