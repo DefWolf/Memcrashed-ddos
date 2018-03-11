@@ -3,7 +3,7 @@ import pip
 #pip.main(['install', 'datetime'])
 #pip.main(['install', 'nmap'])
 from scapy.all import *
-import threading, sys, datetime, argparse, urllib2, nmap
+import threading, sys, datetime, argparse, urllib2
 print("""
 
                       :::!~!!!!!:.
