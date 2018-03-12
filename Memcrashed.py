@@ -77,6 +77,6 @@ if(len(sys.argv) < 3) or (target == None) or (server == None) or (attack == None
 elif(attack == '1'):
 	sends(data, 11211)
 elif(attack == '2'):
-	sends(ldap, 31337)
+	sends(ldap, 389)
 elif(attack == '3'):
 	macflood(target, powers)
