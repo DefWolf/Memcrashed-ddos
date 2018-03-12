@@ -5,6 +5,8 @@ Memcached ddos
 
 Soon the script will multi-thread and automatically search for vulnerable servers + LDAP DDOS
 
+Linux - UTF-8
+
 Windows 7 - Windows 10
 
 Exploit 1 - https://github.com/649/Memcrashed-DDoS-Exploit
