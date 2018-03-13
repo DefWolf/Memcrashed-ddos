@@ -27,7 +27,7 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 print(datetime.datetime.now())
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-A", help="1 - Memcrashed | 2 - LDAP | 3 - MAC Flodding")
+parser.add_argument("-A", help="1 - Memcrashed | 2 - LDAP | 3 - DNS | 4 - MAC Flodding")
 parser.add_argument("-T", help="Target")
 parser.add_argument("-S", help="File amplification")
 parser.add_argument("-N", default=40, help="Number of packages")
