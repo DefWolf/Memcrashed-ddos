@@ -1,9 +1,10 @@
 # Memcrashed
 Version 0.1
 
-Memcached ddos
-
-Soon the script will multi-thread and automatically search for vulnerable servers + LDAP DDOS
+1. Memcached amlification
+2. DNS amlification
+3. LDAP amlification
+4. Mac-flooding
 
 Linux - UTF-8
 
